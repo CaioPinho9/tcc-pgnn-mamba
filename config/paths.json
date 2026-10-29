@@ -1,0 +1,18 @@
+{
+  "defaults": {
+    "datasets_root": "datasets",
+    "checkpoint_root": "checkpoints",
+    "artifacts_root": "artifacts"
+  },
+  "dataset_roots": {
+    "FlatFault_A": "datasets",
+    "CurveVel_A": "datasets",
+    "CurveFault_B": "datasets"
+  },
+  "directories": {
+    "training_logs": "results/training_logs",
+    "evaluation": "results/evaluation",
+    "figures": "results/figures",
+    "hyperparameter_search": "results/hyperparameter_search"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "version": "v8",
+  "scenario_output_dir": "{dataset}_model_scenarios",
+  "factor_table_filename": "{dataset}_{version}_model_scenario_factor_table.csv",
+  "presentation_table_filename": "{dataset}_{version}_scenario_presentation.csv",
+  "velocity_map_glob": "{dataset}_s*_velocity_maps.png",
+  "model_order": [
+    "pgnn_mardan_2024",
+    "pgann_mardan_2024",
+    "unet",
+    "mamba",
+    "unetmamba"
+  ],
+  "datasets": [
+    {
+      "name": "Marmousi",
+      "description": "Cenários de velocidade do modelo Marmousi."
+    },
+    {
+      "name": "FlatFault_A",
+      "description": "Cenários de velocidade para falhas planas."
+    },
+    {
+      "name": "CurveVel_A",
+      "description": "Cenários de velocidade com estruturas curvas."
+    },
+    {
+      "name": "CurveFault_B",
+      "description": "Cenários de velocidade com falhas curvas."
+    }
+  ],
+  "runtime_summary_filename": "presentation_runtime_by_dataset.csv",
+  "grouped_metric_table_filename": "presentation_grouped_by_{group}.csv",
+  "performance_benchmark": {
+    "warmup_runs": 5,
+    "timed_runs": 30
+  },
+  "metrics": [
+    {
+      "key": "mse",
+      "label": "MSE",
+      "direction": "lower",
+      "digits": 2,
+      "description": "Erro quadrático médio entre a velocidade estimada e a referência."
+    },
+    {
+      "key": "mae",
+      "label": "MAE",
+      "direction": "lower",
+      "digits": 2,
+      "description": "Erro absoluto médio entre a velocidade estimada e a referência."
+    },
+    {
+      "key": "ssim",
+      "label": "SSIM",
+      "direction": "higher",
+      "digits": 3,
+      "description": "Similaridade estrutural entre a velocidade estimada e a referência."
+    }
+  ],
+  "performance_metrics": [
+    {
+      "key": "inference_time_ms",
+      "label": "Latência mediana de inferência",
+      "unit": "ms por amostra",
+      "digits": 2,
+      "description": "Cada execução mede 30 passagens forward após 5 aquecimentos e registra mediana, média, desvio padrão e percentil 90; preparação da entrada e transferência ficam fora do cronômetro."
+    },
+    {
+      "key": "peak_gpu_memory_mb",
+      "label": "Pico de memória GPU",
+      "unit": "MB",
+      "digits": 2,
+      "description": "Pico de bytes alocados pelo PyTorch convertido para MB decimais (bytes divididos por 1.000.000) durante a inferência."
+    }
+  ]
+}

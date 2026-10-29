@@ -1,0 +1,9 @@
+*__pycache__*
+.idea/
+artifacts/
+checkpoints/
+.venv
+results/
+# Observações e matrizes de modelo do Marmousi geradas
+datasets/Marmousi/data/
+datasets/Marmousi/model/

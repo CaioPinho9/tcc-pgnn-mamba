@@ -1,0 +1,14 @@
+0_env_pinn_fwi
+results/*
+data_model/*
+!data_model/*.bin
+__pycache__
+
+.DS_Store
+
+_build/
+
+.vscode/
+
+pinn_fwi_google_colab.ipynb
+show_results.ipynb

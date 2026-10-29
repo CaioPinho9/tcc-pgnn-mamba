@@ -1,0 +1,15 @@
+torch==2.10.0
+torchvision==0.25.0
+torchaudio==2.10.0
+numpy
+matplotlib
+prettytable
+scikit-image
+tqdm
+# Native forward_callback support is used by wavefield animations.
+deepwave==0.0.27
+mamba-ssm==2.3.2.post1
+causal-conv1d
+triton==3.6.0; platform_system == "Linux" and platform_machine == "x86_64"
+optuna
+pandas
