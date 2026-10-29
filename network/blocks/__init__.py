@@ -1,0 +1,1 @@
+"""Blocos reutilizáveis para redes neurais."""

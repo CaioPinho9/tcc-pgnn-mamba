@@ -1,0 +1,18 @@
+{
+  "defaults": {
+    "datasets_root": "datasets",
+    "checkpoint_root": "/media/caiopinho/Expansion7/tcc/checkpoints",
+    "artifacts_root": "artifacts"
+  },
+  "dataset_roots": {
+    "FlatFault_A": "/media/caiopinho/Expansion7/tcc",
+    "CurveVel_A": "/media/caiopinho/Expansion7/tcc",
+    "CurveFault_B": "/media/caiopinho/Expansion7/tcc"
+  },
+  "directories": {
+    "training_logs": "results/training_logs",
+    "evaluation": "results/evaluation",
+    "figures": "results/figures",
+    "hyperparameter_search": "results/hyperparameter_search"
+  }
+}

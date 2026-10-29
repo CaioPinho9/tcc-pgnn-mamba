@@ -1,0 +1,45 @@
+{
+  "seed": 24,
+  "training": {
+    "epochs": 500,
+    "report_freq": 50,
+    "learning_rate": 0.0002334720250903526,
+    "adam_betas": [
+      0.6799999999999999,
+      0.975
+    ],
+    "lr_milestone": 300,
+    "lr_gamma": 0.61,
+    "gradient_clip_norm": 2.0,
+    "seismic_input_noise_std_ratio": null,
+    "seismic_observed_noise_std_ratio": null,
+    "source_mini_batches": 4,
+    "loss_filter_order": 3,
+    "loss_filter_padding": 512,
+    "n_blocks_encoder": 4,
+    "n_blocks_decoder": 3,
+    "decoder_initial_shape": [
+      4,
+      4
+    ],
+    "final_out_channels": 1
+  },
+  "dataset_training": {
+    "OpenFWI": {
+      "loss_frequency_cutoffs_hz": [10, 15, 30],
+      "loss_filter_sample_rate_hz": 1000
+    },
+    "Marmousi": {
+      "loss_frequency_cutoffs_hz": [12, 25, 60],
+      "loss_filter_sample_rate_hz": 800
+    }
+  },
+  "dataset_names": [
+    "Marmousi"
+  ],
+  "max_samples": 13,
+  "dataloader": {
+    "batch_size": 4,
+    "num_workers": 0
+  }
+}
