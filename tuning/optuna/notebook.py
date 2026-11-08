@@ -84,7 +84,7 @@ class OptunaNotebookConfig:
     pruner_n_startup_trials: int = 10
     pruning_start_epoch: int = 1000
     pruning_interval_epochs: int = 1000
-    optuna_study_version: str = "v16"
+    optuna_study_version: str = "v1"
     categorical_values: dict[str, list[Any]] = field(default_factory=dict)
 
     @property
@@ -198,7 +198,7 @@ def setup_optuna_notebook(
         if validation_dataset_names == [MARMOUSI_DATASET_NAME]:
             optuna_study_version = "marmousi500_fixed_v1"
         else:
-            optuna_study_version = "v16"
+            optuna_study_version = "v1"
     notebook_config = OptunaNotebookConfig(
         model_type=model_type,
         config_path=config_path,

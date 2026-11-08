@@ -4,6 +4,7 @@ artifacts/
 checkpoints/
 .venv
 results/
-# Observações e matrizes de modelo do Marmousi geradas
+!docs/figures/results/
+!docs/figures/results/**
 datasets/Marmousi/data/
 datasets/Marmousi/model/

@@ -66,7 +66,7 @@ _DEFAULT_INFERENCE_WARMUP_RUNS = 5
 _DEFAULT_INFERENCE_TIMED_RUNS = 30
 
 MODEL_LABELS = {
-    "pgnn_mardan_2024": "PGNN (Mardan 2024)",
+    "pgnn_mardan_2024": "PGNN (Dhara 2022)",
     "pgann_mardan_2024": "PGANN (Mardan 2024)",
     "unet": "U-Net",
     "unetmamba": "U-Net Mamba",
@@ -1309,7 +1309,7 @@ def _mean_and_std(values: Sequence[float]) -> tuple[float, float]:
 
 def build_training_factor_table(
         *,
-        version: str = "v6",
+        version: str = "v1",
         model_names: Sequence[str] | None = None,
         model_name: str | None = None,
         dataset_name: str = "Marmousi",
@@ -2004,7 +2004,7 @@ def write_scenario_runtime_presentation_table(
 
 def evaluate_training_scenarios(
         *,
-        version: str = "v6",
+        version: str = "v1",
         model_names: Sequence[str] | None = None,
         dataset_name: str = "Marmousi",
         checkpoint_root: str | Path = DEFAULT_CHECKPOINT_ROOT,
@@ -2196,7 +2196,7 @@ def evaluate_training_scenarios(
 
 def evaluate_mamba_scenarios(
         *,
-        version: str = "v6",
+        version: str = "v1",
         dataset_name: str = "Marmousi",
         checkpoint_root: str | Path = DEFAULT_CHECKPOINT_ROOT,
         output_dir: str | Path | None = None,

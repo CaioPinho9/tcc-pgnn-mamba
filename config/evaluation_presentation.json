@@ -1,5 +1,5 @@
 {
-  "version": "v8",
+  "version": "v1",
   "scenario_output_dir": "{dataset}_model_scenarios",
   "factor_table_filename": "{dataset}_{version}_model_scenario_factor_table.csv",
   "presentation_table_filename": "{dataset}_{version}_scenario_presentation.csv",

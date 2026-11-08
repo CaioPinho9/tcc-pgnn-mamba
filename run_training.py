@@ -1,5 +1,13 @@
 """Executa treinamentos em sequência, sem abrir um notebook.
 
+Fluxo principal
+---------------
+Para cada amostra, os sismogramas alimentam a rede, que estima um modelo de velocidade.
+O operador físico diferenciável propaga essa estimativa para gerar sismogramas sintéticos;
+a perda L1 compara os traços simulados aos observados após filtragem e normalização sísmica.
+O erro entre a velocidade estimada e a referência é usado para monitoramento, não para calcular
+o gradiente do treinamento.
+
 Exemplos
 --------
 Sem argumentos, selecione modelos e conjuntos de dados nos menus do terminal::
@@ -26,10 +34,10 @@ a partir do modelo de velocidade, pois os arquivos originais contêm apenas rece
 Por padrão, cada conjunto de dados OpenFWI usa as amostras de índices 0 e 1. Marmousi mantém a seleção
 definida em sua configuração.
 
-Quando ``--datasets`` é omitido, cada modelo usa os conjuntos de dados definidos em sua configuração
-e os conjuntos compatíveis encontrados na raiz de dados. A opção ``--sample-indices`` substitui
-a seleção padrão das duas primeiras amostras do OpenFWI. Checkpoints concluídos são ignorados;
-execuções parciais são retomadas.
+Quando ``--models`` é informado sem ``--datasets``, cada modelo usa os conjuntos de dados definidos
+em sua configuração e os conjuntos compatíveis encontrados na raiz de dados. Sem essas opções, o
+script abre os menus interativos. A opção ``--sample-indices`` substitui a seleção padrão das duas
+primeiras amostras do OpenFWI.
 """
 
 from __future__ import annotations
@@ -676,7 +684,10 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         "--datasets",
         nargs="+",
         metavar="CONJUNTO",
-        help="Conjuntos de dados OpenFWI e/ou Marmousi de cada modelo. Use 'all' para selecionar os definidos na configuração.",
+        help=(
+            "Conjuntos de dados OpenFWI e/ou Marmousi de cada modelo. Use 'all' para incluir os "
+            "definidos na configuração e os compatíveis encontrados na raiz de dados."
+        ),
     )
     parser.add_argument(
         "--device",
@@ -752,7 +763,14 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument("--dry-run", action="store_true", help="Valida e exibe a fila sem treinar.")
     parser.add_argument("--list-models", action="store_true", help="Lista os modelos suportados e encerra.")
-    parser.add_argument("--list-datasets", action="store_true", help="Lista os conjuntos de dados configurados e encerra.")
+    parser.add_argument(
+        "--list-datasets",
+        action="store_true",
+        help=(
+            "Lista, por modelo, os conjuntos configurados e as opções OpenFWI suportadas "
+            "(mesmo sem arquivos locais) e encerra."
+        ),
+    )
     args = parser.parse_args(argv)
     args.sample_indices = _split_values([str(value) for value in args.sample_indices]) if args.sample_indices else None
     if args.sample_indices is not None:
