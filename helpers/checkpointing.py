@@ -86,11 +86,11 @@ def training_signature(model_name: str, config: dict) -> str | None:
     if config.get("dataset_name") != "Marmousi":
         return None
     training = dict(config["training"])
-    if model_name == "pgnn_mardan_2024":
+    if model_name == "pgnn_dhara_2022":
         # Mantenha as assinaturas estáveis durante a transferência dos padrões
         # da arquitetura PGNN do executor para o arquivo de configuração.
         if "model_batch_size" in training:
-            training["pgnn_mardan_2024_batch_size"] = training.pop("model_batch_size")
+            training["pgnn_dhara_2022_batch_size"] = training.pop("model_batch_size")
         if training.get("use_attention") is False:
             training.pop("use_attention")
         if training.get("model_output_min") == 0.0 and training.get("model_output_max") == 1.0:

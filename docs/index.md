@@ -26,7 +26,7 @@ O modelo estima a velocidade a partir dos sismogramas de entrada. O operador fí
 
 | Identificador | Página | Implementação | Configuração |
 | --- | --- | --- | --- |
-| `pgnn_mardan_2024` | [PGNN de Mardan baseada em Dhara (2022)](pgnn_mardan_2024.md) | [networks.py](../network/models/pinn_fwi/networks.py) | [pgnn_mardan_2024_config.json](../config/models/pgnn_mardan_2024_config.json) |
+| `pgnn_dhara_2022` | [PGNN proposta por Dhara](pgnn_dhara_2022.md) | [networks.py](../network/models/pinn_fwi/networks.py) | [pgnn_dhara_2022_config.json](../config/models/pgnn_dhara_2022_config.json) |
 | `pgann_mardan_2024` | [PGANN de Mardan](pgann_mardan_2024.md) | [pgann_mardan_2024.py](../network/models/pgann_mardan_2024.py) | [pgann_mardan_2024_config.json](../config/models/pgann_mardan_2024_config.json) |
 | `unet` | [U-Net](unet.md) | [unet.py](../network/models/unet.py) | [unet_config.json](../config/models/unet_config.json) |
 | `mamba` | [Mamba](mamba_e_unetmamba.md) | [mamba.py](../network/models/mamba.py) | [mamba_config.json](../config/models/mamba_config.json) |

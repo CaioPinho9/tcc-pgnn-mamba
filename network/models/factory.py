@@ -1,15 +1,15 @@
 from .pinn_fwi.networks import (
-    Autoencoder as PgnnMardan2024Autoencoder,
+    Autoencoder as PgnnDhara2022Autoencoder,
 )
 from .pgann_mardan_2024 import PGANNMardan2024
 from .unet import UNet
 
 MAMBA_MODEL_NAMES = {"unetmamba", "mamba"}
-PGNN_MARDAN_2024_MODEL_NAME = "pgnn_mardan_2024"
+PGNN_DHARA_2022_MODEL_NAME = "pgnn_dhara_2022"
 PGANN_MARDAN_2024_MODEL_NAME = "pgann_mardan_2024"
 UNET_MODEL_NAME = "unet"
 MARDAN_2024_MODEL_NAMES = frozenset({
-    PGNN_MARDAN_2024_MODEL_NAME,
+    PGNN_DHARA_2022_MODEL_NAME,
     PGANN_MARDAN_2024_MODEL_NAME,
 })
 
@@ -18,8 +18,8 @@ def is_mamba_model(model_name: str) -> bool:
     return model_name in MAMBA_MODEL_NAMES
 
 
-def _build_pgnn_mardan_2024(hyperparameters: dict, device):
-    return PgnnMardan2024Autoencoder(
+def _build_pgnn_dhara_2022(hyperparameters: dict, device):
+    return PgnnDhara2022Autoencoder(
         in_channels=hyperparameters["in_channels"],
         n_blocks_encoder=hyperparameters["n_blocks_encoder"],
         n_blocks_decoder=hyperparameters["n_blocks_decoder"],
@@ -44,11 +44,11 @@ def _build_pgnn_mardan_2024(hyperparameters: dict, device):
     ).to(device)
 
 
-def build_pgnn_mardan_2024(
+def build_pgnn_dhara_2022(
         hyperparameters: dict,
         device,
-) -> PgnnMardan2024Autoencoder:
-    return _build_pgnn_mardan_2024(hyperparameters, device)
+) -> PgnnDhara2022Autoencoder:
+    return _build_pgnn_dhara_2022(hyperparameters, device)
 
 
 def build_pgann_mardan_2024(
@@ -119,8 +119,8 @@ def build_mamba(hyperparameters: dict, device):
 
 
 def build_model(model_name: str, hyperparameters: dict, device):
-    if model_name == PGNN_MARDAN_2024_MODEL_NAME:
-        return build_pgnn_mardan_2024(hyperparameters, device)
+    if model_name == PGNN_DHARA_2022_MODEL_NAME:
+        return build_pgnn_dhara_2022(hyperparameters, device)
     if model_name == PGANN_MARDAN_2024_MODEL_NAME:
         return build_pgann_mardan_2024(hyperparameters, device)
     if model_name == UNET_MODEL_NAME:

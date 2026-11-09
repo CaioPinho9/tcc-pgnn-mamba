@@ -66,7 +66,7 @@ _DEFAULT_INFERENCE_WARMUP_RUNS = 5
 _DEFAULT_INFERENCE_TIMED_RUNS = 30
 
 MODEL_LABELS = {
-    "pgnn_mardan_2024": "PGNN (Dhara 2022)",
+    "pgnn_dhara_2022": "PGNN (Dhara 2022)",
     "pgann_mardan_2024": "PGANN (Mardan 2024)",
     "unet": "U-Net",
     "unetmamba": "U-Net Mamba",

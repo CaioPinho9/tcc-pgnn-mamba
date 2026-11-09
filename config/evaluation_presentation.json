@@ -5,7 +5,7 @@
   "presentation_table_filename": "{dataset}_{version}_scenario_presentation.csv",
   "velocity_map_glob": "{dataset}_s*_velocity_maps.png",
   "model_order": [
-    "pgnn_mardan_2024",
+    "pgnn_dhara_2022",
     "pgann_mardan_2024",
     "unet",
     "mamba",

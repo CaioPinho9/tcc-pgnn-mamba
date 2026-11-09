@@ -1,6 +1,10 @@
-# PGNN de Mardan baseada em Dhara (2022)
+# PGNN proposta por Dhara
 
-Identificador da fábrica: `pgnn_mardan_2024`.
+Identificador da fábrica: `pgnn_dhara_2022`.
+
+## Origem e papel no artigo de Mardan (2024)
+
+Esta implementação foi disponibilizada por Amir Mardan no repositório [`pinn_fwi`](https://github.com/AmirMardan/pinn_fwi). O código inclui a PGNN baseada na arquitetura proposta por Dhara e Sen (2022), que Mardan usa como modelo de referência para compará-la com a PGANN apresentada em seu artigo. Assim, `pgnn_dhara_2022` identifica aqui a PGNN de Dhara disponibilizada no código de Mardan; a arquitetura PGANN é documentada separadamente.
 
 ## Arquitetura implementada
 
@@ -22,7 +26,7 @@ O achatamento do codificador inclui a dimensão do lote. Por isso, a configuraç
 | `model_output_min`, `model_output_max` | 0,0; 1,0 |
 | `final_out_channels` | 1 |
 
-Configuração completa: [pgnn_mardan_2024_config.json](../config/models/pgnn_mardan_2024_config.json). A implementação aplica à FWI a arquitetura PGNN associada a Dhara e Sen (2022), na formulação de Mardan (2024).
+Configuração completa: [pgnn_dhara_2022_config.json](../config/models/pgnn_dhara_2022_config.json). A implementação aplica à FWI a arquitetura PGNN associada a Dhara e Sen (2022), na formulação de Mardan (2024).
 
 ## Diagramas
 

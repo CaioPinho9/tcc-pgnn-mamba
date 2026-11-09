@@ -18,7 +18,7 @@ from .export import export_best_params
 from .objective import create_objective
 
 CONFIG_PATHS = {
-    "pgnn_mardan_2024": "config/models/pgnn_mardan_2024_config.json",
+    "pgnn_dhara_2022": "config/models/pgnn_dhara_2022_config.json",
     "pgann_mardan_2024": "config/models/pgann_mardan_2024_config.json",
     "unet": "config/models/unet_config.json",
     "unetmamba": "config/models/unetmamba_config.json",

@@ -1,10 +1,10 @@
-# TCC-PGNN-Mamba
+# Preservação de Informação Espacial em Redes Neurais para Inversão de Forma de Onda Completa Guiada pela Física
 
 Este repositório contém o código experimental do TCC “Preservação de Informação Espacial em Redes Neurais para Inversão de Forma de Onda Completa Guiada pela Física”. O trabalho compara cinco arquiteturas para reconstruir modelos de velocidade a partir de dados sísmicos, estudando como conexões de salto e blocos Mamba afetam a preservação da informação espacial.
 
 ## Arquiteturas avaliadas
 
-- **PGNN de Mardan baseada em Dhara (2022):** autoencoder convolucional que comprime os sismogramas em um vetor latente e o decodifica em um modelo de velocidades, com a propagação física compondo o treinamento.
+- **PGNN proposta por Dhara:** autoencoder convolucional que comprime os sismogramas em um vetor latente e o decodifica em um modelo de velocidades, com a propagação física compondo o treinamento.
 - **PGANN de Mardan:** reconstrução local da topologia descrita por Mardan, com latente espacial e três ramos de atenção combinados à saída do decodificador principal.
 - **U-Net:** codificador e decodificador convolucionais com conexões de salto que transferem características espaciais entre as etapas.
 - **Mamba:** blocos convolucionais e Mamba no codificador e decodificador, sem conexões de salto.
@@ -20,7 +20,7 @@ Os mapas comparam os cinco modelos na amostra 0 de Marmousi e FlatFault_A.
 
 <img src="./docs/figures/results/FlatFault_A_s0000_velocity_maps.png" alt="Comparação dos modelos na amostra 0 de FlatFault_A, conforme apresentada no TCC" width="900">
 
-A pasta de [figuras de resultados](docs/figures/results/) mantém os mapas de velocidade das amostras 0 e 1 dos quatro conjuntos e os três gráficos métricos referenciados no capítulo de resultados: MAE de Marmousi e MSE de FlatFault_A e CurveFault_B. Gráficos de latência e pico de memória GPU não são incluídos nessa seleção. A avaliação completa continua salvando seus artefatos em `results/evaluation/<versão>/`.
+A pasta de [figuras de resultados](docs/figures/results/) mantém os mapas de velocidade das amostras 0 e 1 dos quatro conjuntos e os três gráficos métricos referenciados no capítulo de resultados: MAE de Marmousi e MSE de FlatFault_A e CurveFault_B. Gráficos de latência e pico de memória GPU não são incluídos nessa seleção.
 
 ## Fluxos de trabalho
 
@@ -37,15 +37,11 @@ Sem argumentos, `run_training.py` abre a seleção interativa no terminal.
 
 Para abrir os notebooks neste ambiente, instale JupyterLab e o kernel Python (opcional; não fazem parte de `requirements.txt`): `python -m pip install jupyterlab ipykernel`, depois execute `jupyter lab` na raiz do repositório.
 
-O padrão para uma execução nova é `v1` no treinamento e na avaliação. Os três notebooks Optuna usam a versão `marmousi500_fixed_v1`; o nome completo do estudo inclui o identificador do modelo, o conjunto de dados e a versão.
-
 | Modelo ajustado | Notebook Optuna | Nome completo do estudo |
 | --- | --- | --- |
 | Mamba | `01_tune_mamba_hyperparams_optuna.ipynb` | `mamba_marmousi_500_Marmousi_marmousi500_fixed_v1` |
 | PGANN | `01_tune_pgann_hyperparams_optuna.ipynb` | `pgann_mardan_2024_marmousi_500_Marmousi_marmousi500_fixed_v1` |
 | U-Net | `01_tune_unet_hyperparams_optuna.ipynb` | `unet_marmousi_500_Marmousi_marmousi500_fixed_v1` |
-
-Optuna é opcional e pode executar muitas épocas por tentativa. O novo padrão abre os estudos nomeados com `marmousi500_fixed_v1` ou os cria se ainda não existirem.
 
 ## Instalação
 

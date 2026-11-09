@@ -47,7 +47,7 @@ OPTUNA_ROOT = DIRECTORIES["hyperparameter_search"]
 PHYSICS_CONFIG_DIR = CONFIG_DIR / "physics"
 
 MODEL_NAMES = (
-    "pgnn_mardan_2024",
+    "pgnn_dhara_2022",
     "pgann_mardan_2024",
     "unet",
     "mamba",

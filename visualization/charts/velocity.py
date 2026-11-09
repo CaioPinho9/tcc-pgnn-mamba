@@ -267,7 +267,7 @@ def reflow_cached_velocity_scenario_figure(
 
         legacy_model_order = (
             "mamba",
-            "pgnn_mardan_2024",
+            "pgnn_dhara_2022",
             "pgann_mardan_2024",
             "unet",
             "unetmamba",

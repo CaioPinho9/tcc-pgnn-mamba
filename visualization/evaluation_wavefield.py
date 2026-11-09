@@ -199,7 +199,7 @@ def display_unetmamba_wavefield_comparison(
             device=device,
         )
 
-    reference_config = build_run_config(dataset_name, "pgnn_mardan_2024")
+    reference_config = build_run_config(dataset_name, "pgnn_dhara_2022")
     torch.manual_seed(int(reference_config.get("seed", 42)))
     reference_data = prepare_data(
         reference_config,
